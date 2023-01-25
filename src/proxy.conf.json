@@ -7,5 +7,14 @@
       "^/backend": ""
     },
     "changeOrigin": true
+  },
+  "/quali": {
+    "target": "http://localhost:8089/qualifications",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/quali": ""
+    },
+    "changeOrigin": true
   }
 }

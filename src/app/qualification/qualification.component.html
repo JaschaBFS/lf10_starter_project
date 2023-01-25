@@ -1,1 +1,6 @@
-<p>qualification works!</p>
+<h2>Quali</h2>
+<ul>
+  <li *ngFor="let e of qualification$ | async">
+    {{e.skill }}
+  </li>
+</ul>

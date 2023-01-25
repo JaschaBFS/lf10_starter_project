@@ -1,4 +1,4 @@
 export class qualification{
-  constructor(public name?: string) {
+  constructor(public skill?: string) {
   }
 }
