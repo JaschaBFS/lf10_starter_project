@@ -1,6 +1,8 @@
 <h2>Quali</h2>
-<ul>
-  <li *ngFor="let e of qualification$ | async">
-    {{e.skill }}
+<ul class="qualifications">
+  <li *ngFor="let qual of qualification$ | async">
+    <button type="button" (click)="onClick(qual)">
+    <span class="skill">{{qual.skill}}</span>
+    </button>
   </li>
 </ul>
