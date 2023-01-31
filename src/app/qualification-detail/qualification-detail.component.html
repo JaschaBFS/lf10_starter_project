@@ -1,1 +1,8 @@
-<p>qualification-detail works!</p>
+<h1>Quali Detail Seite</h1>
+<div *ngIf="qualification">
+  <h2>{{qualification.skill | uppercase}}</h2>
+  <div>
+    <label >Qualification description:</label>
+    <input id="qualification-name" [ngModel]="qualification.skill" placeholder="Qualification description" ]>
+  </div>
+</div>
