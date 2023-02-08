@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
 import {QualiServiceService} from "../quali-service.service";

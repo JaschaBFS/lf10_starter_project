@@ -4,6 +4,7 @@ import {qualification} from "../qualification";
 import {Router} from "@angular/router";
 import {QualiServiceService} from '../quali-service.service';
 
+
 @Component({
   selector: 'app-qualification',
   templateUrl: './qualification.component.html',
