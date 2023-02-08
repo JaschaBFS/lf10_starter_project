@@ -18,7 +18,7 @@ export class EmployeeDetailComponent {
   }
 
   getEmployee() : void {
-    this.employee = this.http.get<Employee>('/employees/' + this.employee.id);
+    //this.employee = this.http.get<Employee>('/employees/' + this.employee.id);
   }
 
 }

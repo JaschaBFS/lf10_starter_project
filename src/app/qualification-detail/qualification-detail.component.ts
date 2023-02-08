@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {Observable, of} from "rxjs";
-import {Employee} from "../Employee";
 import {QualiServiceService} from "../quali-service.service";
 import {qualification} from "../qualification";
 
@@ -10,16 +9,15 @@ import {qualification} from "../qualification";
   styleUrls: ['./qualification-detail.component.css']
 })
 export class QualificationDetailComponent {
-  listOfEmployees$ : Observable<Employee[]> ;
-  qualification : qualification | undefined;
-  constructor( private http: HttpClient, private qualiService: QualiServiceService) {
-    this.listOfEmployees$ = of([]);
+  listOfEmployees$ : Observable<qualification> = new Observable<qualification>();
+  qualification : qualification;
+  constructor(private qualiService: QualiServiceService) {
     this.qualification = this.qualiService.selectedQuali;
     this.getEmployees(this.qualiService.selectedQuali);
   }
 
   getEmployees(quali: qualification) : void {
-    this.listOfEmployees$ = this.qualiService.getListOfEmployeesForQualification(quali);
+    //this.listOfEmployees$ = this.qualiService.getListOfEmployeesForQualification(quali);
   }
 
 }

@@ -8,4 +8,8 @@ export class qualification{
     this.skill=skill;
     this.employees= employees;
   }
+
+  public getEmployees() : Observable<Employee[]> | undefined{
+    return this.employees;
+  }
 }
