@@ -19,7 +19,8 @@ import { EmployeeFormComponent } from './employee-form/employee-form.components'
     EmployeeListComponent,
     QualificationComponent,
     QualificationDetailComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    EmployeeFormComponent
   ],
   imports: [
     BrowserModule,
