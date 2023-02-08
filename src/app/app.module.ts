@@ -8,13 +8,15 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { QualificationComponent } from './qualification/qualification.component';
 import { QualificationDetailComponent } from './qualification-detail/qualification-detail.component';
 import {FormsModule} from "@angular/forms";
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
     QualificationComponent,
-    QualificationDetailComponent
+    QualificationDetailComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,
