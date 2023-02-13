@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {qualification} from "./qualification";
-import {Observable} from "rxjs";
-import {Employee} from "./Employee";
+import {Observable, takeUntil} from "rxjs";
+import {Router} from "@angular/router";
 
 
 @Injectable({
@@ -14,20 +14,38 @@ export class QualiServiceService {
   baseUrl : string = '/quali';
   selectedQuali: qualification;
 
+  currentURl : string ="";
 
-  constructor(private http: HttpClient) {
+  constructor( private router: Router, private http: HttpClient) {
     this.selectedQuali = new qualification();
   }
+
+  navigateTo(URL : string) : void{
+    this.router.navigate([URL]);
+    this.currentURl = URL;
+  }
+
+  refresh(){
+
+    location.reload();
+  }
+
   getListOfQualifications(): Observable<qualification[]> {
     return this.http.get<qualification[]>(this.baseUrl);
   }
 
-  getListOfEmployeesForQualification(quali: qualification) : void//Observable<qualification>
-  {
-    console.log('zugriff auf: ' + this.baseUrl+'/'+quali.skill+'/employees');
-    console.info(this.http.get<JSON>('http://localhost:8089/qualifications/Java/employees'));
-    var qualiEmployees = this.http.get<qualification>(this.baseUrl + '/' + quali.skill + '/employees');
-    qualiEmployees.subscribe();
+  async getListOfEmployeesForQualification(quali: qualification) : Promise<qualification> {
+    console.log('zugriff auf: ' + this.baseUrl + '/' + quali.skill + '/employees');
+    return new Promise((resolve) => {
+      this.http.get<qualification>(this.baseUrl + '/' + quali.skill + '/employees')
+        .subscribe(
+       quali$ => {
+         this.selectedQuali = quali$;
+        console.log(quali$);
+        resolve(quali$);
+      }
+    );
+    });
   }
 
   removeQualification(quali : qualification): Observable<qualification>{

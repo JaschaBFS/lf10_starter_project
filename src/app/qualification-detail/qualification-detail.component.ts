@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {Observable, of} from "rxjs";
+import {Component, OnInit} from '@angular/core';
 import {QualiServiceService} from "../quali-service.service";
 import {qualification} from "../qualification";
 
@@ -8,16 +7,23 @@ import {qualification} from "../qualification";
   templateUrl: './qualification-detail.component.html',
   styleUrls: ['./qualification-detail.component.css']
 })
-export class QualificationDetailComponent {
-  listOfEmployees$ : Observable<qualification> = new Observable<qualification>();
+export class QualificationDetailComponent implements OnInit{
+  listOfEmployees$ : qualification = new qualification();
   qualification : qualification;
-  constructor(private qualiService: QualiServiceService) {
-    this.qualification = this.qualiService.selectedQuali;
-    this.getEmployees(this.qualiService.selectedQuali);
+   constructor(private qualiService: QualiServiceService) {
+     this.qualification = this.qualiService.selectedQuali;
+   }
+
+  async ngOnInit() {
+    await this.getEmployees(this.qualiService.selectedQuali);
   }
 
-  getEmployees(quali: qualification) : void {
-    //this.listOfEmployees$ = this.qualiService.getListOfEmployeesForQualification(quali);
+  async getEmployees(quali: qualification) : Promise<void> {
+    await this.qualiService.getListOfEmployeesForQualification(quali).then(r => {this.listOfEmployees$ = r;});
+  }
+
+  public refresh(): void {
+    this.qualiService.refresh();
   }
 
 }

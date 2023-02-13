@@ -14,7 +14,7 @@ export class QualificationComponent implements OnInit{
 
   qualification$: Observable<qualification[]>;
 
-  constructor( private router: Router, private qualiService: QualiServiceService) {
+  constructor(private qualiService: QualiServiceService) {
     this.qualification$ = of([]);
   }
 
@@ -28,8 +28,7 @@ export class QualificationComponent implements OnInit{
 
   onClick(quali : qualification):void{
     this.qualiService.setSelectedQuali(quali);
-    this.router.navigate(['/quali-detail']);
-    console.log(quali);
+    this.qualiService.navigateTo('/quali-detail');
   }
 
 }
