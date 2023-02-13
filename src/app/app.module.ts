@@ -11,7 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./utility/app.init";
-import { EmployeeFormComponent } from './employee-form/employee-form.components';
+import { NewEmployeeFormComponent } from './employee-form/new-employee-form.components';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { EmployeeFormComponent } from './employee-form/employee-form.components'
     QualificationComponent,
     QualificationDetailComponent,
     EmployeeDetailComponent,
-    EmployeeFormComponent
+    NewEmployeeFormComponent
   ],
   imports: [
     BrowserModule,

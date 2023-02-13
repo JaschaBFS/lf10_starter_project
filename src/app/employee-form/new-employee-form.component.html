@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<section class="new-employee-form">
+  <h1>Enter a new employee into the database</h1>
+  <form #newemployeeform="ngForm" (ngSubmit)="onSubmit(newemployeeform.value)">
+    <div>
+      <label>last name:</label>
+    </div>
+    <div>
+      <input [(ngModel)]="model.lastName"
+             required name="lastName"
+             id = "field1"
+             type = "text"
+      >
+    </div>
+    <div>
+      <label>first name:</label>
+    </div>
+    <div>
+      <input [(ngModel)]="model.firstName"
+             required name="firstName"
+             id = "field2"
+             type = "text"
+      >
+    </div>
+    <div>
+      <label>street:</label>
+    </div>
+    <div>
+      <input [(ngModel)]="model.street"
+             name="street"
+             id = "field3"
+             type = "text"
+      >
+    </div>
+    <div>
+      <label>postcode:</label>
+    </div>
+    <div>
+      <input [(ngModel)]="model.postcode"
+             name="postcode"
+             id = "field4"
+             type = "text"
+      >
+    </div>
+    <div>
+      <label>city:</label>
+    </div>
+    <div>
+      <input [(ngModel)]="model.city"
+             name="city"
+             id = "field5"
+             type = "text"
+      >
+    </div>
+    <div>
+      <label>phone:</label>
+    </div>
+    <div>
+      <input [(ngModel)]="model.phone"
+             name="phone"
+             id = "field6"
+             type = "text"
+      >
+    </div>
+    <div>
+      <label>qualifications</label>
+    </div>
+    <div>
+      <input [(ngModel)]="model.skillset"
+             name="skillset"
+             id = "field7"
+             type = "text"
+      >
+    </div>
+    <div>
+      <button type="submit" [disabled]="!newemployeeform.valid">Submit</button>
+      <button type="button">Cancel</button>
+    </div>
+  </form>
+</section>
+</body>
+</html>
+
+
