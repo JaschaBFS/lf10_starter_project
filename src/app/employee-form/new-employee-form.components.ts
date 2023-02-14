@@ -16,6 +16,7 @@ export class NewEmployeeFormComponent {
   model = new newEmployee("Lesch", "Jascha", "", "", "", "", );
   onSubmit(data: any) {
     this.employeeService.setEmployee(data);
+    this.onCancel();
   }
   onCancel(){
     this.qualiservice.navigateTo('/employee');
