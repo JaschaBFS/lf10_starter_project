@@ -17,7 +17,7 @@ export class EmployeeServiceService {
   private skills: string[];
   model = new newEmployee;
   constructor(private http: HttpClient) {
-    this.selectedEmployee = new Employee();
+    this.selectedEmployee = new Employee(1);
     this.skills = [];
   }
 

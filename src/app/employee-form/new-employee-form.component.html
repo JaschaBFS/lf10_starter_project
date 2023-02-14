@@ -83,7 +83,7 @@
     </div>
     <div class="form">
       <button type="submit" [disabled]="!newemployeeform.valid" class="btn btn-lg btn-block btn-primary">Submit</button>
-      <button type="button" class="btn btn-lg btn-block btn-secound">Cancel</button>
+      <button type="button" class="btn btn-lg btn-block btn-secound"(click)=onCancel()>Cancel</button>
     </div>
   </form>
   </div>
