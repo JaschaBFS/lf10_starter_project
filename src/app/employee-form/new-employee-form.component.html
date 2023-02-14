@@ -4,85 +4,87 @@
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
-<body>
+<body class="text-center">
 <section class="new-employee-form">
-  <h1>Enter a new employee into the database</h1>
-  <form #newemployeeform="ngForm" (ngSubmit)="onSubmit(newemployeeform.value)">
-    <div>
+  <div class="container mb-4 box-shadow">
+  <h1 class = "header">Enter a new employee into the database</h1>
+  <form #newemployeeform="ngForm" (ngSubmit)="onSubmit(newemployeeform.value)" class="">
+    <div class="form">
       <label>last name:</label>
     </div>
-    <div>
+    <div class="form">
       <input [(ngModel)]="model.lastName"
              required name="lastName"
              id = "field1"
              type = "text"
       >
     </div>
-    <div>
+    <div class="form">
       <label>first name:</label>
     </div>
-    <div>
+    <div class="form">
       <input [(ngModel)]="model.firstName"
              required name="firstName"
              id = "field2"
              type = "text"
       >
     </div>
-    <div>
+    <div class="form">
       <label>street:</label>
-    </div>
-    <div>
+    </div >
+    <div class="form">
       <input [(ngModel)]="model.street"
              name="street"
              id = "field3"
              type = "text"
       >
     </div>
-    <div>
+    <div class="form">
       <label>postcode:</label>
     </div>
-    <div>
+    <div class="form">
       <input [(ngModel)]="model.postcode"
              name="postcode"
              id = "field4"
              type = "text"
       >
     </div>
-    <div>
+    <div class="form">
       <label>city:</label>
     </div>
-    <div>
+    <div class="form">
       <input [(ngModel)]="model.city"
              name="city"
              id = "field5"
              type = "text"
       >
     </div>
-    <div>
+    <div class="form">
       <label>phone:</label>
     </div>
-    <div>
+    <div class="form">
       <input [(ngModel)]="model.phone"
              name="phone"
              id = "field6"
              type = "text"
       >
     </div>
-    <div>
+    <div class="form">
       <label>qualifications</label>
     </div>
-    <div>
+    <div class="form">
       <input [(ngModel)]="model.skillset"
              name="skillset"
              id = "field7"
              type = "text"
       >
     </div>
-    <div>
-      <button type="submit" [disabled]="!newemployeeform.valid">Submit</button>
-      <button type="button">Cancel</button>
+    <div class="form">
+      <button type="submit" [disabled]="!newemployeeform.valid" class="btn btn-lg btn-block btn-primary">Submit</button>
+      <button type="button" class="btn btn-lg btn-block btn-secound">Cancel</button>
     </div>
   </form>
+  </div>
 </section>
 </body>
 </html>
