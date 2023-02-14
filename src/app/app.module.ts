@@ -12,6 +12,9 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./utility/app.init";
 import { NewEmployeeFormComponent } from './employee-form/new-employee-form.components';
+import { ExistingEmployeeFormComponent } from './employee-form/existing-employee-form';
+import { Employee} from "./Employee";
+import {EmployeeServiceService} from "./employee-service.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { NewEmployeeFormComponent } from './employee-form/new-employee-form.comp
     QualificationComponent,
     QualificationDetailComponent,
     EmployeeDetailComponent,
-    NewEmployeeFormComponent
+    NewEmployeeFormComponent,
+    ExistingEmployeeFormComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ import { NewEmployeeFormComponent } from './employee-form/new-employee-form.comp
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
-      deps: [KeycloakService]
+      deps: [KeycloakService],
     },
   ],
   bootstrap: [AppComponent]

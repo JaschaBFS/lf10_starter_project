@@ -13,8 +13,8 @@
       <label>last name:</label>
     </div>
     <div class="form">
-      <input [(ngModel)]="model.lastName"
-             required name="lastName"
+      <input [(ngModel)]="model.lastName" required
+             name="lastName"
              id = "field1"
              type = "text"
       >
@@ -23,8 +23,8 @@
       <label>first name:</label>
     </div>
     <div class="form">
-      <input [(ngModel)]="model.firstName"
-             required name="firstName"
+      <input [(ngModel)]="model.firstName" required
+             name="firstName"
              id = "field2"
              type = "text"
       >
@@ -43,10 +43,12 @@
       <label>postcode:</label>
     </div>
     <div class="form">
-      <input [(ngModel)]="model.postcode"
+      <input [(ngModel)]="model.postcode" required
              name="postcode"
              id = "field4"
              type = "text"
+             minlength = "5"
+             maxlength= "5"
       >
     </div>
     <div class="form">

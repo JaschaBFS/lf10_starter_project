@@ -12,7 +12,8 @@ export class Employee {
               public street?: string,
               public postcode?: string,
               public city?: string,
-              public phone?: string) {
+              public phone?: string,
+              public skillset?: string[]) {
     this.id=id;
     this.city= city;
     this.phone=phone;
