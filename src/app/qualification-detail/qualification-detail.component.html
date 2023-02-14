@@ -1,12 +1,21 @@
 <h1>Quali Detail Seite</h1>
 <div *ngIf="qualification">
   <h2>{{qualification.skill | uppercase}}</h2>
-  <button (click)="refresh()">update</button>
-    <ul class>
-      <li *ngFor="let employees of listOfEmployees$.employees">
-          {{employees.id}}
-          {{employees.firstName}}
-          {{employees.lastName}}
-      </li>
-    </ul>
+  <button (click)="add()">add</button>
+  <div class="tabelle">
+    <table>
+      <tr>
+        <th>id</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+      </tr>
+      <ng-container *ngFor="let employees of listOfEmployees$.employees">
+        <tr>
+          <td>{{employees.id}}</td>
+          <td>{{employees.firstName}}</td>
+          <td>{{employees.lastName}}</td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
 </div>

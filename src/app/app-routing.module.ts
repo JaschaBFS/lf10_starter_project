@@ -6,6 +6,7 @@ import{QualificationDetailComponent} from "./qualification-detail/qualification-
 import {AuthGuard} from "./utility/app.guard";
 import {ExistingEmployeeFormComponent} from "./employee-form/existing-employee-form";
 import {NewEmployeeFormComponent} from "./employee-form/new-employee-form.components";
+import {QualificationAddComponent} from "./qualification-add/qualification-add.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/employee', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'quali', component: QualificationComponent,canActivate:[AuthGuard]},
   {path: 'quali-detail', component: QualificationDetailComponent,},
   {path: 'updateEmployee', component: ExistingEmployeeFormComponent},
-  {path: 'newEmployee', component: NewEmployeeFormComponent}
+  {path: 'newEmployee', component: NewEmployeeFormComponent},
+  {path: 'quali-add', component: QualificationAddComponent}
 ];
 
 @NgModule({

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {qualification} from "./qualification";
-import {Observable, takeUntil} from "rxjs";
+import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {AddSkill} from "./addSkill";
 
 
 @Injectable({
@@ -23,11 +24,6 @@ export class QualiServiceService {
   navigateTo(URL : string) : void{
     this.router.navigate([URL]);
     this.currentURl = URL;
-  }
-
-  refresh(){
-
-    location.reload();
   }
 
   getListOfQualifications(): Observable<qualification[]> {
@@ -51,11 +47,17 @@ export class QualiServiceService {
   removeQualification(quali : qualification): Observable<qualification>{
     return this.http.delete<qualification>(this.baseUrl);
   }
-  addQualification(quali : qualification) : Observable<qualification>{
-    return this.http.post<qualification>(this.baseUrl, {
-      headers: new HttpHeaders()
-        .set('Content-Type', 'application/json')
-    });
+  addQualification(skill: AddSkill){
+    try{
+      return new Promise((resolve) =>{
+        this.http.post<AddSkill>(this.baseUrl,skill).subscribe(skill$ =>{
+          resolve(skill$);
+        })
+      })
+    }catch(e){
+      console.log(e as Error);
+    }
+    return null;
   }
   setSelectedQuali(quali: qualification){
     this.selectedQuali = quali;

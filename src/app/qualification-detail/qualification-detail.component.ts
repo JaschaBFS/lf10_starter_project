@@ -22,8 +22,8 @@ export class QualificationDetailComponent implements OnInit{
     await this.qualiService.getListOfEmployeesForQualification(quali).then(r => {this.listOfEmployees$ = r;});
   }
 
-  public refresh(): void {
-    this.qualiService.refresh();
+  public add() : void{
+     this.qualiService.navigateTo('/quali-add');
   }
 
 }
