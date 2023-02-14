@@ -11,9 +11,9 @@ export function initializeKeycloak(keycloak: KeycloakService):()=>Promise<boolea
             initOptions: {
                 checkLoginIframe: true,
                 checkLoginIframeInterval:25,
-                onLoad: 'check-sso',
+               /* onLoad: 'check-sso',
                 silentCheckSsoRedirectUri:
-                    window.location.origin + '/assets/silent-check-sso.html'
+                    window.location.origin + '/assets/silent-check-sso.html' */
             },shouldAddToken:(request) => {
             const { method, url } = request;
 
