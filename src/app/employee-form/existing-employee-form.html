@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
-<body>
+<body class="text-center">
 <section class="existing-employee-form">
+  <div class="container mb-4 box-shadow">
   <h1>Edit a existing employee in the database</h1>
   <form #newemployeeform="ngForm" (ngSubmit)="onSubmit(newemployeeform.value)">
     <div>
@@ -81,11 +82,13 @@
       >
     </div>
     <div>
-      <button type="submit" [disabled]="!newemployeeform.valid">Submit</button>
-      <button type="button">Cancel</button>
+      <button type="submit" [disabled]="!newemployeeform.valid" class="btn btn-lg btn-block btn-primary">Submit</button>
+      <button type="button" class="btn btn-lg btn-block btn-secound">Cancel</button>
     </div>
   </form>
+  </div>
 </section>
+
 </body>
 </html>
 
