@@ -4,6 +4,7 @@ import {qualification} from "../qualification";
 import {AppRoutingService} from "../app-routing.service";
 import {Employee} from "../Employee";
 import {of} from "rxjs";
+import {EmployeeServiceService} from "../employee-service.service";
 
 @Component({
   selector: 'app-qualification-detail',
@@ -17,7 +18,7 @@ export class QualificationDetailComponent implements OnInit{
   allEmployees : Employee[] =  [];
 
   displayedColumns : string[] = ['id','lastName','firstName'];
-   constructor(private qualiService: QualiServiceService,private router: AppRoutingService) {
+   constructor(private qualiService: QualiServiceService,private router: AppRoutingService, private employeeService: EmployeeServiceService) {
      this.qualification = this.qualiService.selectedQuali;
    }
 
@@ -41,6 +42,11 @@ export class QualificationDetailComponent implements OnInit{
 
   public delete(): void{
      this.router.navigateTo('/quali-delete');
+  }
+
+  public selectEmployee(employee: Employee){
+    this.employeeService.setSelectedEmployee(employee);
+    this.router.navigateTo('/employee-detail');
   }
 
 }
