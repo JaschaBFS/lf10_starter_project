@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable, of} from "rxjs";
+import { Component} from '@angular/core';
 import {Employee} from "../Employee";
-import {AppRoutingService} from "../app-routing.service";
 import {EmployeeServiceService} from "../employee-service.service";
 
 @Component({
@@ -10,23 +7,12 @@ import {EmployeeServiceService} from "../employee-service.service";
   templateUrl: './employee-detail.component.html',
   styleUrls: ['./employee-detail.component.css']
 })
-export class EmployeeDetailComponent implements OnInit{
+export class EmployeeDetailComponent{
 
-  employee : Employee;
+  employee : Employee = new Employee();
 
-  constructor(private http: HttpClient, private router: AppRoutingService) {
-    this.employee = new Employee();
-  }
-
-  async ngOnInit() {
-    await this.getEmployee();
-  }
-  getEmployee() : void {
-    this.http.get<Employee>('/employee/' + this.router.getEmployeeId()).subscribe(
-      employee => {
-        this.employee = employee;
-      }
-    );
+  constructor(private employeeService: EmployeeServiceService) {
+    this.employee = this.employeeService.selectedEmployee;
   }
 
 }

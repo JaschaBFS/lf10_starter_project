@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
 import {HttpClient} from "@angular/common/http";
-import {QualiServiceService} from "../quali-service.service";
 import {AppRoutingService} from "../app-routing.service";
 import {KeycloakService} from "keycloak-angular";
+import {EmployeeServiceService} from "../employee-service.service";
 
 @Component({
   selector: 'app-employee-list',
@@ -15,7 +15,7 @@ export class EmployeeListComponent {
 
   employees$: Observable<Employee[]>;
 
-  constructor(private http: HttpClient,private keycloackService:KeycloakService, private qualiservice: QualiServiceService, private router: AppRoutingService) {
+  constructor(private http: HttpClient,private keycloackService:KeycloakService, private employeeService: EmployeeServiceService, private router: AppRoutingService) {
     this.employees$ = of([]);
     this.fetchData();
   }
@@ -29,5 +29,11 @@ export class EmployeeListComponent {
 
   openNewEmployeeForm() {
     this.router.navigateTo('/newEmployee');
+  }
+
+  employeeDetail(employee : Employee){
+    console.log(employee);
+    this.employeeService.setSelectedEmployee(employee);
+    this.router.navigateTo('/employee-detail');
   }
 }

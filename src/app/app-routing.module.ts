@@ -8,6 +8,7 @@ import {ExistingEmployeeFormComponent} from "./employee-form/existing-employee-f
 import {NewEmployeeFormComponent} from "./employee-form/new-employee-form.components";
 import {QualificationAddComponent} from "./qualification-add/qualification-add.component";
 import {QualificationDeleteComponent} from "./qualification-delete/qualification-delete.component";
+import {EmployeeDetailComponent} from "./employee-detail/employee-detail.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/employee', pathMatch: 'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'updateEmployee', component: ExistingEmployeeFormComponent},
   {path: 'newEmployee', component: NewEmployeeFormComponent},
   {path: 'quali-add', component: QualificationAddComponent},
-  {path: 'quali-delete', component: QualificationDeleteComponent}
+  {path: 'quali-delete', component: QualificationDeleteComponent},
+  {path: 'employee-detail', component: EmployeeDetailComponent}
 ];
 
 @NgModule({

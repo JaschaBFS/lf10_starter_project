@@ -10,7 +10,7 @@
   <div>
     <ul>
       <li *ngFor="let e of employees$ | async">
-        {{e.lastName }}, {{e.firstName}}
+        <button type="button" (click)="employeeDetail(e)">{{e.lastName }}</button>, {{e.firstName}}
       </li>
     </ul>
   </div>

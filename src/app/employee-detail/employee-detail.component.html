@@ -1,2 +1,13 @@
-<script>parent.postMessage(location.href, location.origin);</script>
 <p>employee-detail works!</p>
+<h1>Employee selected is {{employee.firstName}}</h1>
+<ul *ngIf="employee">
+  <li >{{employee.id}}</li>
+  <li>{{employee.firstName}}</li>
+  <li>{{employee.lastName}}</li>
+  <li>{{employee.city}}</li>
+  <li>{{employee.phone}}</li>
+  <li>{{employee.postcode}}</li>
+</ul>
+
+
+
