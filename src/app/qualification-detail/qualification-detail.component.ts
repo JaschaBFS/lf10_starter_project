@@ -44,8 +44,16 @@ export class QualificationDetailComponent implements OnInit{
      this.router.navigateTo('/quali-delete');
   }
 
-  public selectEmployee(employee: Employee){
-    this.employeeService.setSelectedEmployee(employee);
+   public async selectEmployee(employee: Employee){
+     if(typeof employee.id !== 'undefined'){
+       var selectedEmployee = this.employeeService.getEmployeeById(employee.id)?.then(
+         r => {
+           if (typeof selectedEmployee !== 'undefined') {
+             this.employeeService.setSelectedEmployee(r);
+             console.log("employee ist nun: "+this.employeeService.selectedEmployee);
+           }
+         });
+     }
     this.router.navigateTo('/employee-detail');
   }
 

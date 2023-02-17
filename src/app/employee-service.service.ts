@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Employee} from "./Employee";
-import {HttpClient, HttpHeaders, HttpStatusCode} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {JsonObject} from "@angular/compiler-cli/ngcc/src/utils";
-import {qualification} from "./qualification";
+import {HttpClient} from "@angular/common/http";
 import {newEmployee} from "./newEmployee";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeServiceService {
-  bearer = '';
-  baseUrl = '/employees';
   selectedEmployee: Employee;
   apiUrl = '/backend';
   private skillSet: string[];
@@ -21,11 +16,15 @@ export class EmployeeServiceService {
     this.skillSet = [];
   }
 
-  getEmployee(): Observable<Employee> {
-    return this.http.get<Employee>(this.baseUrl + '/' + this.selectedEmployee.id, {
-      headers: new HttpHeaders()
-        .set('Content-Type', 'application/jason')
-        .set('Authorization', `Bearer ${this.bearer}`)});
+  async getEmployeeById(id : number) : Promise<Employee> {
+      console.log(this.apiUrl + '/' + id + " wird aufgerufen");
+      return new Promise<Employee>((resolve) =>{
+        this.http.get<Employee>(this.apiUrl + '/' + id)
+          .subscribe(employee$ =>{
+            console.log("employee ist : " + employee$);
+            resolve(employee$);
+          });
+      })
   }
 
   setSelectedEmployee(employee: Employee) {
@@ -66,7 +65,6 @@ export class EmployeeServiceService {
     }
     return null;
   }
-
   deleteEmployee() {
     try {return new Promise((resolve) => {
       this.http.delete<any>(this.apiUrl + '/' + this.selectedEmployee.id).subscribe(employee$ =>{
