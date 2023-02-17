@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {qualification} from "../qualification";
-import {Router} from "@angular/router";
+import {AppRoutingService} from "../app-routing.service";
 import {QualiServiceService} from '../quali-service.service';
 
 
@@ -14,7 +14,7 @@ export class QualificationComponent implements OnInit{
 
   qualification$: Observable<qualification[]>;
 
-  constructor(private qualiService: QualiServiceService) {
+  constructor(private qualiService: QualiServiceService, private router : AppRoutingService) {
     this.qualification$ = of([]);
   }
 
@@ -28,7 +28,7 @@ export class QualificationComponent implements OnInit{
 
   onClick(quali : qualification):void{
     this.qualiService.setSelectedQuali(quali);
-    this.qualiService.navigateTo('/quali-detail');
+    this.router.navigateTo('/quali-detail');
   }
 
 }

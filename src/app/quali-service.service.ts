@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {qualification} from "./qualification";
 import {Observable} from "rxjs";
-import {Router} from "@angular/router";
 import {AddSkill} from "./addSkill";
 
 
@@ -21,15 +20,9 @@ export class QualiServiceService {
     },
   };
   selectedQuali: qualification;
-  currentURl : string ="";
 
-  constructor( private router: Router, private http: HttpClient) {
+  constructor(  private http: HttpClient) {
     this.selectedQuali = new qualification();
-  }
-
-  navigateTo(URL : string) : void{
-    this.router.navigate([URL]);
-    this.currentURl = URL;
   }
 
   getListOfQualifications(): Observable<qualification[]> {

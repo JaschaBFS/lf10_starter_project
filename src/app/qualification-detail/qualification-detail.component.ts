@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {QualiServiceService} from "../quali-service.service";
 import {qualification} from "../qualification";
+import {AppRoutingService} from "../app-routing.service";
 
 @Component({
   selector: 'app-qualification-detail',
@@ -10,7 +11,7 @@ import {qualification} from "../qualification";
 export class QualificationDetailComponent implements OnInit{
   listOfEmployees$ : qualification = new qualification();
   qualification : qualification;
-   constructor(private qualiService: QualiServiceService) {
+   constructor(private qualiService: QualiServiceService,private router: AppRoutingService) {
      this.qualification = this.qualiService.selectedQuali;
    }
 
@@ -23,11 +24,11 @@ export class QualificationDetailComponent implements OnInit{
   }
 
   public add() : void{
-     this.qualiService.navigateTo('/quali-add');
+     this.router.navigateTo('/quali-add');
   }
 
   public delete(): void{
-     this.qualiService.navigateTo('/quali-delete');
+     this.router.navigateTo('/quali-delete');
   }
 
 }

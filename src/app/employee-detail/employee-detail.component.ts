@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {Employee} from "../Employee";
+import {AppRoutingService} from "../app-routing.service";
 import {EmployeeServiceService} from "../employee-service.service";
 
 @Component({
@@ -13,7 +14,7 @@ export class EmployeeDetailComponent {
 
   employee : Observable<Employee>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: AppRoutingService) {
     this.employee = new Observable<Employee>();
   }
 
