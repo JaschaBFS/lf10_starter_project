@@ -28,7 +28,7 @@ export class EmployeeListComponent {
   }
 
   openNewEmployeeForm() {
-    this.router.navigateTo('/newEmployee');
+    this.router.navigateTo('/new-employee');
   }
 
   employeeDetail(employee : Employee){

@@ -5,13 +5,13 @@
     <button class="btn btn-outline-primary"(click)="logout()">Logout</button>
   </div>
   <div>
-    <button type="button" (click)="openNewEmployeeForm()">Neu hinzufügen</button>
-  </div>
-  <div>
     <ul>
       <li *ngFor="let e of employees$ | async">
         <button type="button" (click)="employeeDetail(e)">{{e.lastName }}</button>, {{e.firstName}}
       </li>
     </ul>
+  </div>
+  <div>
+    <button type="button" (click)="openNewEmployeeForm()">Neu hinzufügen</button>
   </div>
 </div>

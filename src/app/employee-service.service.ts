@@ -17,7 +17,7 @@ export class EmployeeServiceService {
   private skills: string[];
   model = new newEmployee;
   constructor(private http: HttpClient) {
-    this.selectedEmployee = new Employee(1);/*emuliert dass eine ID vorhanden ist um Employees zu editieren */
+    this.selectedEmployee = new Employee();
     this.skills = [];
   }
 
@@ -64,6 +64,15 @@ export class EmployeeServiceService {
   }
 
   deleteEmployee() {
-    this.http.delete<any>(this.apiUrl + '/' + this.selectedEmployee.id)
+    try {return new Promise((resolve) => {
+      this.http.delete<any>(this.apiUrl + '/' + this.selectedEmployee.id).subscribe(employee$ =>{
+        resolve(employee$);
+      });
+    })}
+  catch (e){
+    console.log(e as Error);
   }
+  return null;
 }
+  }
+

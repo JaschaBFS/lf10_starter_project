@@ -15,8 +15,8 @@ const routes: Routes = [
   { path: 'employee', component: EmployeeListComponent,canActivate:[AuthGuard]},
   {path: 'quali', component: QualificationComponent,canActivate:[AuthGuard]},
   {path: 'quali-detail', component: QualificationDetailComponent,},
-  {path: 'updateEmployee', component: ExistingEmployeeFormComponent},
-  {path: 'newEmployee', component: NewEmployeeFormComponent},
+  {path: 'update-employee', component: ExistingEmployeeFormComponent},
+  {path: 'new-employee', component: NewEmployeeFormComponent},
   {path: 'quali-add', component: QualificationAddComponent},
   {path: 'quali-delete', component: QualificationDeleteComponent},
   {path: 'employee-detail', component: EmployeeDetailComponent}
