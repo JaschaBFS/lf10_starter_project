@@ -14,11 +14,11 @@ export class EmployeeServiceService {
   baseUrl = '/employees';
   selectedEmployee: Employee;
   apiUrl = '/backend';
-  private skills: string[];
+  private skillSet: string[];
   model = new newEmployee;
   constructor(private http: HttpClient) {
     this.selectedEmployee = new Employee();
-    this.skills = [];
+    this.skillSet = [];
   }
 
   getEmployee(): Observable<Employee> {
@@ -33,13 +33,16 @@ export class EmployeeServiceService {
   }
 
   setEmployee(data:any) {
-    this.skills.push(data.skillset);
-    this.model = new newEmployee(data.lastName, data.firstName, data.street, data.postcode, data.city, data.phone, this.skills);
+    this.skillSet.push(data.skillSet);
+    console.log(this.skillSet);
+    this.model = new newEmployee(data.lastName, data.firstName, data.street, data.postcode, data.city, data.phone, this.skillSet);
+    console.log(this.model);
     try{return new Promise((resolve) => {
       this.http.post<any>(this.apiUrl + '/', this.model)
         .subscribe(
           employee$ => {
             resolve(employee$);
+            console.log(employee$);
           }
         );
     })}catch (e){
@@ -48,8 +51,9 @@ export class EmployeeServiceService {
     return null;
 }
   updateEmployee(data: any){
-    this.skills.push(data.skillset);
-    this.model = new newEmployee(data.lastName, data.firstName, data.street, data.postcode, data.city, data.phone, this.skills);
+    this.skillSet.push(data.skillset);
+    console.log(this.skillSet);
+    this.model = new newEmployee(data.lastName, data.firstName, data.street, data.postcode, data.city, data.phone, this.skillSet);
     try{return new Promise((resolve) => {
       this.http.put<any>(this.apiUrl + '/' + this.selectedEmployee.id, this.model)
         .subscribe(

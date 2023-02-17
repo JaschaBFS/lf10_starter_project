@@ -6,6 +6,7 @@ export class Employee {
   private static postcode?: string;
   private static city?: string;
   private static phone?: string;
+  private static skillset?: string [] = [];
   constructor(public id?: number,
               public lastName?: string,
               public firstName?: string,
@@ -21,6 +22,7 @@ export class Employee {
     this.postcode=postcode;
     this.lastName=lastName;
     this.street=street;
+    this.skillset=skillset;
 
   }
 }

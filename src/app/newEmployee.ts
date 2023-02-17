@@ -7,7 +7,7 @@ export class newEmployee {
               public postcode?: string,
               public city?: string,
               public phone?: string,
-              public skillset?: string[]) {
+              public skillSet?: string[]) {
 
   }
 }
