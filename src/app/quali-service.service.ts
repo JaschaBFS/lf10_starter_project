@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {qualification} from "./qualification";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
@@ -10,11 +10,17 @@ import {AddSkill} from "./addSkill";
   providedIn: 'root'
 })
 
-
 export class QualiServiceService {
   baseUrl : string = '/quali';
+  options = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+    body: {
+      skill : '',
+    },
+  };
   selectedQuali: qualification;
-
   currentURl : string ="";
 
   constructor( private router: Router, private http: HttpClient) {
@@ -44,8 +50,21 @@ export class QualiServiceService {
     });
   }
 
-  removeQualification(quali : qualification): Observable<qualification>{
-    return this.http.delete<qualification>(this.baseUrl);
+  removeQualification(quali : qualification){
+    try{
+      if(typeof quali.skill === 'string'){
+        this.options.body.skill = quali.skill;
+        console.log(this.options);
+      }
+      return new Promise((resolve) => {
+        this.http.delete<qualification>(this.baseUrl, this.options).subscribe(qual$ =>{
+          resolve(qual$);
+        });
+      })
+    }catch (e){
+      console.log(e as Error);
+    }
+    return null;
   }
   addQualification(skill: AddSkill){
     try{

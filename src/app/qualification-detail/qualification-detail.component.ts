@@ -26,4 +26,8 @@ export class QualificationDetailComponent implements OnInit{
      this.qualiService.navigateTo('/quali-add');
   }
 
+  public delete(): void{
+     this.qualiService.navigateTo('/quali-delete');
+  }
+
 }

@@ -7,6 +7,7 @@ import {AuthGuard} from "./utility/app.guard";
 import {ExistingEmployeeFormComponent} from "./employee-form/existing-employee-form";
 import {NewEmployeeFormComponent} from "./employee-form/new-employee-form.components";
 import {QualificationAddComponent} from "./qualification-add/qualification-add.component";
+import {QualificationDeleteComponent} from "./qualification-delete/qualification-delete.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/employee', pathMatch: 'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'quali-detail', component: QualificationDetailComponent,},
   {path: 'updateEmployee', component: ExistingEmployeeFormComponent},
   {path: 'newEmployee', component: NewEmployeeFormComponent},
-  {path: 'quali-add', component: QualificationAddComponent}
+  {path: 'quali-add', component: QualificationAddComponent},
+  {path: 'quali-delete', component: QualificationDeleteComponent}
 ];
 
 @NgModule({

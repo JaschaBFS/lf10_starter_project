@@ -14,6 +14,7 @@ import {initializeKeycloak} from "./utility/app.init";
 import { NewEmployeeFormComponent } from './employee-form/new-employee-form.components';
 import { ExistingEmployeeFormComponent } from './employee-form/existing-employee-form';
 import {QualificationAddComponent} from "./qualification-add/qualification-add.component";
+import { QualificationDeleteComponent } from './qualification-delete/qualification-delete.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {QualificationAddComponent} from "./qualification-add/qualification-add.c
     EmployeeDetailComponent,
     NewEmployeeFormComponent,
     ExistingEmployeeFormComponent,
-    QualificationAddComponent
+    QualificationAddComponent,
+    QualificationDeleteComponent
   ],
   imports: [
     BrowserModule,
