@@ -8,6 +8,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { QualificationComponent } from './qualification/qualification.component';
 import { QualificationDetailComponent } from './qualification-detail/qualification-detail.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatTableModule} from "@angular/material/table";
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {initializeKeycloak} from "./utility/app.init";
@@ -36,6 +37,7 @@ import { QualificationDeleteComponent } from './qualification-delete/qualificati
     FormsModule,
     KeycloakAngularModule,
     ReactiveFormsModule,
+    MatTableModule,
   ],
   providers: [
     {

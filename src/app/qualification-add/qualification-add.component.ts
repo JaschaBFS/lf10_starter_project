@@ -10,9 +10,7 @@ import {AddSkill} from "../addSkill";
 })
 export class QualificationAddComponent {
     skill = new FormControl('');
-    constructor(private qualiservice: QualiServiceService) {
-    }
-
+    constructor(private qualiservice: QualiServiceService) {}
     public add(){
       var newQuali;
       if(this.skill.value === null){

@@ -2,22 +2,22 @@
 <div *ngIf="qualification">
   <h2>{{qualification.skill | uppercase}}</h2>
   <button (click)="add()">add</button>
-  <div class="tabelle">
-    <table>
-      <tr>
-        <th>id</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-      </tr>
-      <ng-container *ngFor="let employees of listOfEmployees$.employees">
-        <tr>
-          <td>{{employees.id}}</td>
-          <td>{{employees.firstName}}</td>
-          <td>{{employees.lastName}}</td>
-        </tr>
-      </ng-container>
-    </table>
-  </div>
+  <table mat-table [dataSource]="allEmployees" class="materialTable">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Lastname</th>
+      <td mat-cell *matCellDef="let row">{{row.lastName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>Firstname</th>
+      <td mat-cell *matCellDef="let row">{{row.firstName}}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
   <div>
     <button (click)="delete()">Delete Qualification</button>
   </div>
