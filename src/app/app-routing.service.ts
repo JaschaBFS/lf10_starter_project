@@ -10,4 +10,8 @@ export class AppRoutingService {
   navigateTo(URL : string) : void {
     this.router.navigate([URL]);
   }
+
+  getEmployeeId() {
+    return this.router.url.split('/')[2];
+  }
 }
