@@ -6,7 +6,7 @@
   </div>
   <div>
     <ul>
-      <li *ngFor="let e of employees$ | async">
+      <li *ngFor="let e of employees$">
         <button type="button" (click)="employeeDetail(e)">{{e.lastName }}</button>, {{e.firstName}}
       </li>
     </ul>

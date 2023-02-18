@@ -3,8 +3,6 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {qualification} from "./qualification";
 import {Observable} from "rxjs";
 import {AddSkill} from "./addSkill";
-import {AppRoutingService} from "./app-routing.service";
-
 
 @Injectable({
   providedIn: 'root'
@@ -22,14 +20,12 @@ export class QualiServiceService {
   };
   selectedQuali: qualification;
 
-  constructor(  private http: HttpClient) {
+  constructor(private http: HttpClient) {
     this.selectedQuali = new qualification();
   }
-
   getListOfQualifications(): Observable<qualification[]> {
     return this.http.get<qualification[]>(this.baseUrl);
   }
-
   async getListOfEmployeesForQualification(quali: qualification) : Promise<qualification> {
     console.log('zugriff auf: ' + this.baseUrl + '/' + quali.skill + '/employees');
     return new Promise((resolve) => {
@@ -37,12 +33,11 @@ export class QualiServiceService {
         .subscribe(
        quali$ => {
          this.selectedQuali = quali$;
-        resolve(quali$);
+         resolve(quali$);
       }
     );
     });
   }
-
   removeQualification(quali : qualification){
     try{
       if(typeof quali.skill === 'string'){

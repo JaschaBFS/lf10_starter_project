@@ -13,18 +13,21 @@ import {EmployeeServiceService} from "../employee-service.service";
 })
 export class EmployeeListComponent {
 
-  employees$: Observable<Employee[]>;
+  employees$: Employee[] = [];
 
   constructor(private http: HttpClient,private keycloackService:KeycloakService, private employeeService: EmployeeServiceService, private router: AppRoutingService) {
-    this.employees$ = of([]);
-    this.fetchData();
+    this.getAllEmployees();
   }
 
-  fetchData() {
-    this.employees$ = this.http.get<Employee[]>('/backend');
+  async getAllEmployees() {
+    this.employees$ = await this.employeeService.getAllEmployees();
   }
   logout():void{
     this.keycloackService.logout();
+  }
+
+  goToQualifications(){
+    this.router.navigateTo('/quali');
   }
 
   openNewEmployeeForm() {

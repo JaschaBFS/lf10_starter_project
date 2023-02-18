@@ -1,0 +1,26 @@
+<h1>Who do you want to add this qualification to?</h1>
+<table mat-table [dataSource]="employeesToAdd" class="materialTable">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>id</th>
+    <td mat-cell *matCellDef="let row">{{row.id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef>Lastname</th>
+    <td mat-cell *matCellDef="let row">{{row.lastName}}</td>
+  </ng-container>
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef>Firstname</th>
+    <td mat-cell *matCellDef="let row">{{row.firstName}}</td>
+  </ng-container>
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <mat-checkbox></mat-checkbox>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (change)="onToggleEmployee(row)"></mat-checkbox>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<button type="button" (click)="addSkillToEmployees()">Save</button>
+<button>Cancel</button>

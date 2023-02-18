@@ -13,10 +13,12 @@ export class NewEmployeeFormComponent {
   constructor(private employeeService: EmployeeServiceService, private router: AppRoutingService) {
 
   }
-  model = new newEmployee("", "", "", "", "", "", );
-  onSubmit(data: any) {
-    this.employeeService.setEmployee(data);
-    this.onCancel();
+  model = new newEmployee("", "", "", "", "", "");
+  async onSubmit(data: any) {
+    console.log("daten sind gerade: "+data);
+    await this.employeeService.setEmployee(data)?.then(r =>{
+      this.onCancel();
+    });
   }
   onCancel(){
     this.router.navigateTo('/employee');

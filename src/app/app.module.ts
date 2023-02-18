@@ -16,6 +16,9 @@ import { NewEmployeeFormComponent } from './employee-form/new-employee-form.comp
 import { ExistingEmployeeFormComponent } from './employee-form/existing-employee-form';
 import {QualificationAddComponent} from "./qualification-add/qualification-add.component";
 import { QualificationDeleteComponent } from './qualification-delete/qualification-delete.component';
+import { AddQualiToEmployeeComponent } from './add-quali-to-employee/add-quali-to-employee.component';
+import { RemoveQualificationFromEmployeeComponent } from './remove-qualification-from-employee/remove-qualification-from-employee.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { QualificationDeleteComponent } from './qualification-delete/qualificati
     NewEmployeeFormComponent,
     ExistingEmployeeFormComponent,
     QualificationAddComponent,
-    QualificationDeleteComponent
+    QualificationDeleteComponent,
+    AddQualiToEmployeeComponent,
+    RemoveQualificationFromEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,7 @@ import { QualificationDeleteComponent } from './qualification-delete/qualificati
     KeycloakAngularModule,
     ReactiveFormsModule,
     MatTableModule,
+    MatCheckboxModule,
   ],
   providers: [
     {

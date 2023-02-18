@@ -11,24 +11,21 @@ import {QualiServiceService} from '../quali-service.service';
   styleUrls: ['./qualification.component.css']
 })
 export class QualificationComponent implements OnInit{
-
   qualification$: Observable<qualification[]>;
-
   constructor(private qualiService: QualiServiceService, private router : AppRoutingService) {
     this.qualification$ = of([]);
   }
-
   ngOnInit(): void{
     this.getQualifications();
   }
-
+  goToEmployees(){
+    this.router.navigateTo('/employee');
+  }
   getQualifications() : void{
     this.qualification$ = this.qualiService.getListOfQualifications();
   }
-
   onClick(quali : qualification):void{
     this.qualiService.setSelectedQuali(quali);
     this.router.navigateTo('/quali-detail');
   }
-
 }
