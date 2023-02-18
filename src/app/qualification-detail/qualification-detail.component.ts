@@ -50,11 +50,11 @@ export class QualificationDetailComponent implements OnInit{
          r => {
            if (typeof selectedEmployee !== 'undefined') {
              this.employeeService.setSelectedEmployee(r);
-             console.log("employee ist nun: "+this.employeeService.selectedEmployee);
+             this.router.navigateTo('/employee-detail');
            }
          });
      }
-    this.router.navigateTo('/employee-detail');
+
   }
 
 }

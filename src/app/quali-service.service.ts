@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {qualification} from "./qualification";
 import {Observable} from "rxjs";
 import {AddSkill} from "./addSkill";
+import {AppRoutingService} from "./app-routing.service";
 
 
 @Injectable({
@@ -36,7 +37,6 @@ export class QualiServiceService {
         .subscribe(
        quali$ => {
          this.selectedQuali = quali$;
-        console.log(quali$);
         resolve(quali$);
       }
     );
@@ -47,7 +47,6 @@ export class QualiServiceService {
     try{
       if(typeof quali.skill === 'string'){
         this.options.body.skill = quali.skill;
-        console.log(this.options);
       }
       return new Promise((resolve) => {
         this.http.delete<qualification>(this.baseUrl, this.options).subscribe(qual$ =>{
