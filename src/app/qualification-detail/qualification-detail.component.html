@@ -1,7 +1,14 @@
-<h1>Quali Detail Seite</h1>
+<div class=" row center d-flex " >
+  <h1 >Quali Detail Seite</h1>
+</div>
+
 <div *ngIf="qualification">
-  <h2>{{qualification.skill | uppercase}}</h2>
-  <button (click)="add()">add</button>
+  <div class=" row center d-flex ">
+    <h2>{{qualification.skill | uppercase}}</h2>
+  </div>
+  <div class=" row center d-flex ">
+    <button class =" btn btn-outline-primary col-sm-3"(click)="add()">add</button>
+  </div>
   <table mat-table [dataSource]="allEmployees" class="materialTable">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>id</th>
@@ -18,9 +25,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row (click)="selectEmployee(row)" *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-  <div>
-    <button (click)="delete()">Delete Qualification</button>
-    <button (click)="addQualiToEmployee()">Add to Employee</button>
-    <button (click)="removeQualiFromEmployee()">Remove from Employee</button>
+  <div class=" row center d-flex ">
+    <button class =" btn btn-outline-primary col-sm-3"(click)="delete()">Delete Qualification</button>
+    <button class =" btn btn-outline-primary col-sm-3"(click)="addQualiToEmployee()">Add to Employee</button>
+    <button class =" btn btn-outline-primary col-sm-3"(click)="removeQualiFromEmployee()">Remove from Employee</button>
   </div>
 </div>

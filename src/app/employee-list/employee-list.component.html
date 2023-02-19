@@ -4,14 +4,15 @@
     Wenn Sie in der EmployeeListComponent.ts ein gültiges Bearer-Token eintragen, sollten hier die Namen der in der Datenbank gespeicherten Mitarbeiter angezeigt werden!
     <button class="btn btn-outline-primary"(click)="logout()">Logout</button>
   </div>
-  <div>
-    <ul>
-      <li *ngFor="let e of employees$">
-        <button type="button" (click)="employeeDetail(e)">{{e.lastName }}</button>, {{e.firstName}}
+  <div class = "row d-flex justify-content-center">
+    <ul class="list-group col-mb-3 col-lg-6  ">
+      <li class=" list-group-item d-flex justify-content-between lh-condensed " *ngFor="let e of employees$">
+        <button type="button " class="btn btn-outline-secound" (click)="employeeDetail(e)">{{e.lastName}},</button> <button type="button " class="btn btn-outline-secound" (click)="employeeDetail(e)">{{e.firstName }}</button>
       </li>
     </ul>
+
   </div>
-  <div>
+  <div class="btn row center d-flex">
     <button type="button" (click)="openNewEmployeeForm()">Neu hinzufügen</button>
   </div>
 </div>

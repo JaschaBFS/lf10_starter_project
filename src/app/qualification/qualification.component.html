@@ -1,8 +1,12 @@
-<h2>Quali</h2>
-<ul class="qualifications">
-  <li *ngFor="let qual of qualification$ | async">
+<div class="row d-flex justify-content-center top">
+  <h1>Quali</h1>
+</div>
+<div class = "row d-flex justify-content-center">
+<ul class="list-group col-mb-3 col-lg-6">
+  <li class=" list-group-item d-flex justify-content-between lh-condensed " *ngFor="let qual of qualification$ | async" >
     <button type="button" (click)="onClick(qual)">
     <span class="skill">{{qual.skill}}</span>
     </button>
   </li>
 </ul>
+</div>

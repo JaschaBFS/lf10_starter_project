@@ -1,18 +1,25 @@
-<p>employee-detail works!</p>
-<h1>Employee selected is {{employee.firstName}}</h1>
-<ul *ngIf="employee">
-  <li >{{employee.id}}</li>
-  <li>{{employee.firstName}}</li>
-  <li>{{employee.lastName}}</li>
-  <li>{{employee.city}}</li>
-  <li>{{employee.phone}}</li>
-  <li>{{employee.postcode}}</li>
-</ul>
-<div>
-  <button type="button" (click)="onEdit()">Edit</button>
+<div class = "row d-flex justify-content-center">
+
+  <h1>Employee selected is {{employee.firstName}}</h1>
+
 </div>
-<div>
-  <button type="button" (click)="onDelete()">Delete</button>
+<div class = "row d-flex justify-content-center">
+
+
+<ul *ngIf="employee" class="list-group col-mb-3 col-lg-6  ">
+  <li class=" list-group-item d-flex justify-content-between lh-condensed ">ID: {{employee.id}}</li>
+  <li class=" list-group-item d-flex justify-content-between lh-condensed ">First Name: {{employee.firstName}}</li>
+  <li class=" list-group-item d-flex justify-content-between lh-condensed ">Last Name: {{employee.lastName}}</li>
+  <li class=" list-group-item d-flex justify-content-between lh-condensed ">City: {{employee.city}}</li>
+  <li class=" list-group-item d-flex justify-content-between lh-condensed ">Phone: {{employee.phone}}</li>
+  <li class=" list-group-item d-flex justify-content-between lh-condensed ">Postcode: {{employee.postcode}}</li>
+</ul>
+</div>
+<div class="btn row center d-flex">
+  <button class =" btn btn-outline-primary col-sm-3" type="button" (click)="onEdit()">Edit</button>
+</div>
+<div class="btn row center d-flex">
+  <button class =" btn btn-outline-primary col-sm-3" type="button" (click)="onDelete()">Delete</button>
 </div>
 
 
