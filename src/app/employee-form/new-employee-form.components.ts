@@ -13,9 +13,9 @@ export class NewEmployeeFormComponent {
   constructor(private employeeService: EmployeeServiceService, private router: AppRoutingService) {
 
   }
-  model = new newEmployee("", "", "", "", "", "");
+  model = new newEmployee("", "", "", "", "", "", []);
   async onSubmit(data: any) {
-    console.log("daten sind gerade: "+data);
+    console.log("daten sind gerade: "+data.model);
     await this.employeeService.setEmployee(data)?.then(r =>{
       this.onCancel();
     });

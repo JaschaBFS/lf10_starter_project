@@ -47,18 +47,20 @@ export class EmployeeServiceService {
   }
 
   setEmployee(data:any) {
-    this.skillSet.push(data.skillSet);
+    if(data.skillSet !== undefined){
+        this.skillSet.push(data.skillSet);
+    }
     console.log(this.skillSet);
-    this.model = new newEmployee(data.lastName, data.firstName, data.street, data.postcode, data.city, data.phone, this.skillSet);
+    this.model = new newEmployee(data.lastName, data.firstName, data.street, data.postcode,data.city, data.phone, this.skillSet);
     console.log(this.model);
     try{return new Promise((resolve) => {
-      this.http.post<any>(this.apiUrl, this.model)
+      this.http.post<Employee>(this.apiUrl, this.model)
         .subscribe(
           employee$ => {
             console.log(employee$);
             resolve(employee$);
           }
-        );
+        )
     })}catch (e){
       console.log(e as Error);
     }

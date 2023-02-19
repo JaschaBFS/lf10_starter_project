@@ -1,6 +1,5 @@
 export class newEmployee {
   constructor(
-
               public lastName?: string,
               public firstName?: string,
               public street?: string,
