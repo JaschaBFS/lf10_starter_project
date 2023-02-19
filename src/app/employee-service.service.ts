@@ -67,9 +67,12 @@ export class EmployeeServiceService {
     return null;
 }
   updateEmployee(data: any){
-    this.skillSet.push(data.skillset);
+    if(data.skillSet !== undefined){
+      this.skillSet.push(data.skillSet);
+    }
     console.log(this.skillSet);
     this.model = new newEmployee(data.lastName, data.firstName, data.street, data.postcode, data.city, data.phone, this.skillSet);
+    console.log(this.model);
     try{return new Promise((resolve) => {
       this.http.put<any>(this.apiUrl + '/' + this.selectedEmployee.id, this.model)
         .subscribe(

@@ -71,15 +71,13 @@
              type = "text"
       >
     </div>
-    <div>
-      <label>qualifications</label>
-    </div>
-    <div>
-      <input [(ngModel)]="model.skillSet"
-             name="skillset"
-             id = "field7"
-             type = "text"
-      >
+    <div class="form-group">
+      <label for ="branch">qualifications</label>
+      <select id="branch" name="skillSet" [(ngModel)]="model.skillSet" class="form-control">
+        <option *ngFor="let value  of (values$ | async)"
+                [value]="value.skill">{{value.skill}}
+        </option>
+      </select>
     </div>
     <div>
       <button type="submit" [disabled]="!newemployeeform.valid" class="btn btn-lg btn-block btn-primary">Submit</button>
